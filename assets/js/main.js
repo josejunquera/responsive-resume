@@ -6,7 +6,7 @@ const showMenu = (toggleId, navId) => {
   // Validate that variables exist
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
-      // We add the show-menu class to the div tag with the nav__menu class
+      // Add the show-menu class to the div tag with the nav__menu class
       nav.classList.toggle("show-menu");
     });
   }
@@ -18,7 +18,7 @@ const navLink = document.querySelectorAll(".nav__link");
 
 function linkAction() {
   const navMenu = document.getElementById("nav-menu");
-  // When we click on each nav__link, we remove the show-menu class
+  // click on each nav__link, remove the show-menu class
   navMenu.classList.remove("show-menu");
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
@@ -63,15 +63,15 @@ const iconTheme = "bx-sun";
 const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
-// We obtain the current theme that the interface has by validating the dark-theme class
+// Obtain the current theme that the interface has by validating the dark-theme class
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
 const getCurrentIcon = () =>
   themeButton.classList.contains(iconTheme) ? "bx-moon" : "bx-sun";
 
-// We validate if the user previously chose a topic
+// Validate if the user previously chose a topic
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  // If the validation is fulfilled, ask what the issue was to know if we activated or deactivated the dark
   document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
     darkTheme
   );
@@ -85,7 +85,7 @@ themeButton.addEventListener("click", () => {
   // Add or remove the dark / icon theme
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
+  // Save the theme and the current icon that the user chose
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
@@ -127,9 +127,9 @@ function generateResume() {
 // When the button is clicked, it executes the three functions
 
 resumeButton.addEventListener("click", () => {
-  // 1. The class .scale-cv is added to the body, where it reduces the size of the elements
+  // 1. Class .scale-cv is added to the body, where it reduces the size of the elements
   scaleCv();
-  // 2. The PDF is generated
+  // 2. PDF is generated
   generateResume();
   // 3. The .scale-cv class is removed from the body after 5 seconds to return to normal size.
   setTimeout(removeScale, 5000);
